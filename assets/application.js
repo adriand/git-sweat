@@ -5,7 +5,7 @@ function doSet(exerciseSet) {
     /*$("#set").append("<tr><th>" + exercise_label + "</th>"); // </tr>");
     $("#set").append("<td>" + exerciseSet[exercise_label] + "</td>");
     $("#set").append("</tr>"); */
-    $("#set").append("<tr><th>" + exercise_label + "</th>" + drawReps(exerciseSet[exercise_label]) + "</tr>");
+    $("#set").append("<tr><th>" + capitalize(exercise_label) + "</th>" + drawReps(exerciseSet[exercise_label]) + "</tr>");
   });
 }
 
@@ -15,6 +15,11 @@ function drawReps(reps) {
     checks += "<td><label><input type='checkbox' /> " + rep + "</label></td>";
   });
   return checks;
+}
+
+function capitalize(label) {
+  capitalizedLabel = label.replace("_", " ", "g"); // "g" doesn't work?
+  return capitalizedLabel;
 }
 
 $( function() {
