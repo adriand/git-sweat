@@ -12,3 +12,5 @@ Requirements
   b) Time
   c) Quotes
   d) Pics
+5. Shows progress
+6. Shows total time

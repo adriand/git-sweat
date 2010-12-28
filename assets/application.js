@@ -9,6 +9,37 @@ function doSet(exerciseSet) {
   });
 }
 
+function loadSets(sets) {
+  $(".set").each( function(exerciseSet) {
+    exercises = [];
+    title = $(exerciseSet).find('h1').html();
+    $(exerciseSet).find('ul li').each( function(exerciseItem) {
+      exercises.push(new Exercise(exerciseItem));
+    });
+    sets.push(exercises);
+  });
+}
+
+function Exercise(exerciseItem) {
+  this.parse = function() {
+    label_and_reps = $(this.exerciseItem).text().split("\n")[0].split(":");
+    this.label = label_and_reps[0];
+    this.reps = label_and_reps[1].trim().split(",");
+    // console.log(this.label);
+    // console.log(this.reps);
+    this.description = $(this.exerciseItem).find('p').html();
+  }
+
+  this.countTotalReps = function() {
+    this.totalReps = _(this.reps).reduce( function(memo, num) { return memo + num; } );
+  }
+
+  this.exerciseItem = exerciseItem;
+
+  this.parse();
+  this.countTotalReps();
+}
+
 function drawReps(reps) {
   checks = "";
   _(reps).each( function(rep) {
@@ -32,6 +63,9 @@ $( function() {
     planche_both_arms:  [30,20,20]
   }
 
-  doSet(first);
+  // doSet(first);
+
+  sets = [];
+  loadSets(sets);
 
 });
