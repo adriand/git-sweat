@@ -1,5 +1,5 @@
 body {
-  font: 13px/18px Helvetica, Arial, sans-serif;
+  font: 15px/20px Helvetica, Arial, sans-serif;
   margin: 0px;
   padding: 0px;
   background-color: #393939;
@@ -58,9 +58,9 @@ a {
 #container {
   margin: 0px auto;
   padding: 0px;
-  width: 980px; }
+  width: 90%; }
 
-table#set tr th, table#set tr td { padding: 10px; }
+table#sets tr th, table#sets tr td { padding: 10px; }
 
 h1 {
   font-size: 30px;

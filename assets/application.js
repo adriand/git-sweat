@@ -1,23 +1,43 @@
-function doSet(exerciseSet) {
-  exercise_labels = _(exerciseSet).keys();
-  _(exercise_labels).each( function(exercise_label) {
-    // $("#set").append("<tr>").append("<th>").html(exercise_label);
-    /*$("#set").append("<tr><th>" + exercise_label + "</th>"); // </tr>");
-    $("#set").append("<td>" + exerciseSet[exercise_label] + "</td>");
-    $("#set").append("</tr>"); */
-    $("#set").append("<tr><th>" + capitalize(exercise_label) + "</th>" + drawReps(exerciseSet[exercise_label]) + "</tr>");
+function drawSets(sets) {
+  _(sets).each( function(exerciseSet) {
+    // $("#sets").append('<tr><th><h1>' + exerciseSet.title + '</h1></th><th>' + exerciseSet.totalReps + '</th></tr>');
+    $("#sets").append('<tr><th><h1>' + exerciseSet.title + '</h1></th></tr>');
+    _(exerciseSet.exercises).each( function(exercise) {
+      $("#sets").append('<tr><th>' + exercise.label + '</th><td>' + drawReps(exercise.reps) + '</td></tr>');
+    });
   });
 }
 
-function loadSets(sets) {
-  $(".set").each( function(exerciseSet) {
-    exercises = [];
-    title = $(exerciseSet).find('h1').html();
-    $(exerciseSet).find('ul li').each( function(exerciseItem) {
-      exercises.push(new Exercise(exerciseItem));
-    });
-    sets.push(exercises);
+function drawReps(reps) {
+  checks = "";
+  _(reps).each( function(rep) {
+    checks += "<td><label><input type='checkbox' /> " + rep + "</label></td>";
   });
+  return checks;
+}
+
+function loadSets(sets) {
+  $(".set").each( function(exerciseSetItem) {
+    title = $(exerciseSetItem).find('h1').html();
+    exerciseSet = new ExerciseSet(title);
+    $(exerciseSetItem).find('ul li').each( function(exerciseItem) {
+      exerciseSet.exercises.push(new Exercise(exerciseItem));
+    });
+    exerciseSet.countTotalReps();
+    sets.push(exerciseSet);
+  });
+}
+
+function ExerciseSet(title) {
+  this.title = title;
+  this.exercises = [];
+  this.totalReps = 0;
+
+  this.countTotalReps = function() {
+    this.totalReps += _(this.exercises).reduce( function(memo, exercise) {
+      return memo + exercise.totalReps;
+    });
+  }
 }
 
 function Exercise(exerciseItem) {
@@ -25,8 +45,6 @@ function Exercise(exerciseItem) {
     label_and_reps = $(this.exerciseItem).text().split("\n")[0].split(":");
     this.label = label_and_reps[0];
     this.reps = label_and_reps[1].trim().split(",");
-    // console.log(this.label);
-    // console.log(this.reps);
     this.description = $(this.exerciseItem).find('p').html();
   }
 
@@ -40,32 +58,9 @@ function Exercise(exerciseItem) {
   this.countTotalReps();
 }
 
-function drawReps(reps) {
-  checks = "";
-  _(reps).each( function(rep) {
-    checks += "<td><label><input type='checkbox' /> " + rep + "</label></td>";
-  });
-  return checks;
-}
-
-function capitalize(label) {
-  capitalizedLabel = label.replace("_", " ", "g"); // "g" doesn't work?
-  return capitalizedLabel;
-}
-
 $( function() {
-  
-  // Push-up - 25,15,15
-  // Planche both arms - 30,20,20
-  
-  first = {
-    push_up:            [25,15,15],
-    planche_both_arms:  [30,20,20]
-  }
-
-  // doSet(first);
-
   sets = [];
   loadSets(sets);
-
+  drawSets(sets);
+  $(".set").hide();
 });
