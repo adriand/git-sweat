@@ -58,16 +58,23 @@ function Exercise(exerciseItem) {
   this.countTotalReps();
 }
 
+function updateProgress(clickedElement) {
+  completed_reps_element = $("#completed_reps");
+  completed_reps = parseInt(completed_reps_element.text());
+  just_completed_reps = parseInt($(clickedElement).closest('label').text());
+  // TODO: this doesn't decrement
+  total_so_far = completed_reps + just_completed_reps
+  completed_reps_element.text(total_so_far);
+  progress = (total_so_far / parseInt($("#total_reps").text())) * 100;
+  $("#progress #bar").css("width", progress + "%;");
+}
+
 $( function() {
   sets = [];
   loadSets(sets);
   drawSets(sets);
   $(".set").hide();
   $("#sets input").bind('click', function(event) {
-    completed_reps_element = $("#completed_reps");
-    completed_reps = parseInt(completed_reps_element.text());
-    just_completed_reps = parseInt($(this).closest('label').text());
-    // TODO: this doesn't decrement
-    completed_reps_element.text(completed_reps + just_completed_reps);
+    updateProgress(this);
   });
 });

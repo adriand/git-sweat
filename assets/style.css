@@ -1,5 +1,5 @@
 body {
-  font: 15px/20px Helvetica, Arial, sans-serif;
+  font: 18px/24px Helvetica, Arial, sans-serif;
   margin: 0px;
   padding: 0px;
   background-color: #393939;
@@ -8,9 +8,6 @@ body {
 * {
   margin: 0px;
   padding: 0px; }
-
-p, h1, h2, h3 {
-  margin-bottom: 15px; }
 
 .spacer {
   clear: both;
@@ -32,21 +29,18 @@ a {
     border: 0px; }
 
 #header {
-  margin: 0px;
-  padding: 40px 0px 10px;
+  margin: 0px 0px 0px 20px;
+  padding: 40px 0px 0px 0px;
   color: white; }
-  #header a, #header a:hover, #header a:visited {
-    color: white;
-    font-size: 48px;
-    text-decoration: none; }
 
 #content {
   background: white;
   color: #333333;
   padding: 30px;
-  margin: 0px;
-  font-size: 15px;
-  line-height: 18px; }
+  margin: 20px;
+  text-align: left;
+  border-radius: 8px;
+}
   
 #footer {
   font-size: 10px;
@@ -60,6 +54,10 @@ a {
   padding: 0px;
   width: 90%; }
 
+#progress { margin: 0px 0px 0px 10px; background-color: #d8d8d8; width: 98%; height: 8px; }
+#progress #bar { background-color: blue; width: 0%; height: 8px; }
+
+table#sets tr td label { padding: 5px 12px 5px 12px; background-color: #d8d8d8; border-radius: 5px; }
 table#sets tr th, table#sets tr td { padding: 10px; }
 
 h1 {
