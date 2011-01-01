@@ -77,4 +77,5 @@ $( function() {
   $("#sets input").bind('click', function(event) {
     updateProgress(this);
   });
+  $("#test").load("programs/standard_fitness_1.htm");
 });
