@@ -15,22 +15,18 @@ function drawReps(reps) {
   return checks;
 }
 
-function loadSets(sets) {
-  $(".set").each( function(exerciseSetItem) {
-    title = $(exerciseSetItem).find('h1').html();
-    exerciseSet = new ExerciseSet(title);
-    $(exerciseSetItem).find('ul li').each( function(exerciseItem) {
-      exerciseSet.exercises.push(new Exercise(exerciseItem));
-    });
-    exerciseSet.countTotalReps();
-    sets.push(exerciseSet);
-  });
-}
-
 function ExerciseSet(title) {
   this.title = title;
   this.exercises = [];
   this.totalReps = 0;
+
+  this.load = function(exerciseSetItem) {
+    this.title = $(exerciseSetItem).find('h1').html();
+    $(exerciseSetItem).find('p').each( function(exerciseItem) {
+      this.exercises.push(new Exercise(exerciseItem));
+    });
+    this.countTotalReps();
+  }
 
   this.countTotalReps = function() {
     obj = this;
@@ -70,10 +66,13 @@ function updateProgress(clickedElement) {
 }
 
 $( function() {
-  sets = [];
-  loadSets(sets);
-  drawSets(sets);
-  $(".set").hide();
+  $("#programs a").bind('click', function(event) {
+    $.get($(this).attr("href"), function(data) {
+      console.log(data);
+    });
+    event.preventDefault();
+  });
+  // drawSets(sets);
   $("#sets input").bind('click', function(event) {
     updateProgress(this);
   });
