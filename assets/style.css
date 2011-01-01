@@ -54,6 +54,8 @@ a {
   padding: 0px;
   width: 90%; }
 
+#programs a { font-size: 28px; display: block; margin-bottom: 20px; }
+
 #progress { margin: 0px 0px 0px 10px; background-color: #d8d8d8; width: 98%; height: 8px; }
 #progress #bar { background-color: blue; width: 0%; height: 8px; }
 

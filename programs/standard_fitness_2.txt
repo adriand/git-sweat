@@ -1,0 +1,13 @@
+Standard Fitness 2
+
+Push-up: 25,15,15
+
+Sit-up: 30,20,20
+
+Squat: 40,30,30
+
+Russian twist: 20,20,20
+
+Planche one arm: 30,20,20
+
+Tricep raises: 10,10,8

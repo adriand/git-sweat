@@ -5,11 +5,11 @@ Push-up: 25,15,15
 Planche both arms: 30,20,20
 Keeping body straight, hold yourself up with both arms.
 
-Crunch: 30,20,15
+Crunch: 30,20,20
 
 Squat: 40,30,30
 
-Leg raises: 25,20,15
+Leg raises: 25,20,20
 Lay flat on the ground. With hands supporting your lower back, raise your legs.
 
 Bicep curls: 30,30,20
