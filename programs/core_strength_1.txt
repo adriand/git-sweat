@@ -1,0 +1,15 @@
+Core Strength 1
+
+V-Sit: 15,10,10
+
+Bridge: 10,10,5
+
+Hip lift: 10,10,5
+
+Bicycle crunch: 30,20,30
+
+Push-up: 20,20,20
+
+Lunge with twist: 40,30,30
+
+Superman: 15,10,10
