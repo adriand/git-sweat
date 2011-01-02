@@ -1,12 +1,12 @@
 Core Strength 1
 
-V-Sit: 15,10,10
+V-Sit: 15,15,10
 
-Bridge: 10,10,5
+Bridge: 10,10,8
 
-Hip lift: 10,10,5
+Hip lift: 10,10,8
 
-Bicycle crunch: 30,20,30
+Bicycle crunch: 30,30,30
 
 Push-up: 20,20,20
 
