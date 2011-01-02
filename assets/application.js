@@ -59,38 +59,68 @@ function Exercise(exerciseItemTemplate) {
   this.countTotalReps();
 }
 
-function updateProgressBar(progress) {
-  $("#progress #bar").css("width", progress + "%;");
-}
+function Progress() {
+  this.progress = 0;
+  this.total = 0;
 
-function updateProgress(clickedElement) {
-  completed_reps_element = $("#completed_reps");
-  completed_reps = parseInt(completed_reps_element.text());
-  just_completed_reps = parseInt($(clickedElement).closest('label').text());
-  // TODO: this doesn't decrement
-  // Could just replace with a single call that traverses all checked elements and increments a total
-  total_so_far = completed_reps + just_completed_reps
-  completed_reps_element.text(total_so_far);
-  progress = (total_so_far / parseInt($("#total_reps").text())) * 100;
-  updateProgressBar(progress);
+  this.reset = function() {
+    this.progress = 0;
+    this.draw();
+  }
+
+  this.draw = function() {
+    percentage = Math.round((this.progress / this.total) * 100);
+    $("#progress #bar").css("width", percentage + "%;");
+    $("#completed_reps").html(this.progress);
+  }
+
+  this.update = function(clickedElement) {
+    just_completed = parseInt($(clickedElement).closest('label').text());
+    if ($(clickedElement).is(':checked')) {
+      this.progress += just_completed;
+    } else {
+      this.progress -= just_completed;
+    }
+
+    this.draw();
+  }
+
 }
 
 $( function() {
+  progress = new Progress();
+  
   $("#programs a").bind('click', function(event) {
     $.get($(this).attr("href"), function(data) {
+      // load and draw a new set of exercises based on the data retrieved via AJAX, post-click
       set = new ExerciseSet(data);
       set.draw();
+
+      // save the total number of reps into our progress object so we can calculate percentage complete
+      progress.total = set.totalReps;
+
+      // show the exercise set and hide the index of exercise programs
       $("#exercising").show(); $("#programs").hide();
+      
+      // when one of the checkboxes is clicked, update progress appropriately
       $("#set input").bind('click', function(event) {
-        updateProgress(this);
+        progress.update(this);
+      });
+
+      // Fix mobile Safari's lack of support for clickable labels by triggering a click event on the
+      // inputs when a *containing* (i.e. does not use the 'for' attribute) label is clicked. 
+      $("#set label").bind('click', function(event) {
+        $('a', $(this)).trigger('click');
       });
     });
     event.preventDefault();
   });
 
   $("#return_to_programs").bind('click', function(event) {
-    updateProgressBar(0);
+    // reset progress, hide the set of exercises, and show the list of exercise programs
+    progress.reset();
     $("#exercising").hide(); $("#programs").show();
     event.preventDefault();
   });
+
 });
