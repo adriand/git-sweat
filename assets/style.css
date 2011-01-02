@@ -57,8 +57,10 @@ a {
 #programs a { font-size: 28px; }
 #programs .program { margin-bottom: 20px; }
 
-#progress { margin: 0px 0px 0px 10px; background-color: #d8d8d8; width: 98%; height: 8px; }
+#progress { margin: 8px 0px 0px 10px; background-color: #d8d8d8; float: left; width: 89%; height: 8px; }
 #progress #bar { background-color: blue; width: 0%; height: 8px; }
+#progress #bar.completed { background-color: #4cc554; }
+#counter { float: left; padding: 0px 0px 10px 10px; width: 8%; }
 
 table#set tr td label { padding: 5px 12px 5px 12px; background-color: #d8d8d8; border-radius: 5px; }
 table#set tr th, table#set tr td { padding: 10px; }

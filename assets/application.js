@@ -24,7 +24,7 @@ function ExerciseSet(exerciseSetTemplate) {
   this.draw = function() {
     $("#set").html(""); // clear the table
     obj = this;
-    $("#set").append('<tr><th><h1>' + obj.title + '</h1></th><th colspan="100%"><h1><span id="completed_reps">0</span> of <span id="total_reps">' + obj.totalReps + '</span></h1></th></tr>');
+    $("#set").append('<tr><th><h1>' + obj.title + '</h1></th></tr>');
     _(obj.exercises).each( function(exercise) {
       $("#set").append('<tr><th>' + exercise.label + '</th><td>' + obj.drawReps(exercise.reps) + '</td></tr>');
     });
@@ -65,6 +65,7 @@ function Progress() {
 
   this.reset = function() {
     this.progress = 0;
+    $("#total_reps").html(this.total);
     this.draw();
   }
 
@@ -72,6 +73,11 @@ function Progress() {
     percentage = Math.round((this.progress / this.total) * 100);
     $("#progress #bar").css("width", percentage + "%;");
     $("#completed_reps").html(this.progress);
+    if (this.progress == this.total) {
+      $("#progress #bar").addClass('completed');
+    } else {
+      $("#progress #bar").removeClass('completed');
+    }
   }
 
   this.update = function(clickedElement) {
@@ -98,6 +104,8 @@ $( function() {
 
       // save the total number of reps into our progress object so we can calculate percentage complete
       progress.total = set.totalReps;
+      // reset progress bar status and show the total number of reps
+      progress.reset();
 
       // show the exercise set and hide the index of exercise programs
       $("#exercising").show(); $("#programs").hide();
@@ -117,8 +125,7 @@ $( function() {
   });
 
   $("#return_to_programs").bind('click', function(event) {
-    // reset progress, hide the set of exercises, and show the list of exercise programs
-    progress.reset();
+    // hide the set of exercises, and show the list of exercise programs
     $("#exercising").hide(); $("#programs").show();
     event.preventDefault();
   });
