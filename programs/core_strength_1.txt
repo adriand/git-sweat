@@ -6,7 +6,7 @@ Bridge: 10,10,8
 
 Hip lift: 10,10,8
 
-Bicycle crunch: 30,30,30
+Bicycle crunch: 15,15,15
 
 Push-up: 20,20,20
 
