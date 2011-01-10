@@ -25,3 +25,11 @@ To-do
 -----
 
 Simplified Markdown for the exercise programs?
+
+Adding New Programs
+-------------------
+
+1. Add the file in programs
+2. Create a link on the index page
+3. Add the program to the cache.manifest file
+4. Update the revision number in the cache.manifest file

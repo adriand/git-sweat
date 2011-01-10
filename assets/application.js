@@ -130,4 +130,14 @@ $( function() {
     event.preventDefault();
   });
 
+  /* two ways of responding to appcache events:
+  window.applicationCache.onchecking = function() {
+    console.log("Checking...");
+  }
+
+  function yo() { alert('yo'); }
+
+  window.applicationCache.addEventListener('checking', yo, false);
+  */
+
 });
