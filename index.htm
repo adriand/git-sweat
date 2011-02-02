@@ -1,5 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
-<html lang='en' manifest="cache.manifest"> 
+<!-- <html lang='en' manifest="cache.manifest"> -->
+<html lang='en'>
   <head> 
     <meta content='text/html; charset=utf-8' http-equiv='Content-Type' /> 
     <title>fit</title> 
@@ -9,47 +10,48 @@
     <script src='assets/application.js' type='text/javascript'></script>
   </head> 
   <body> 
-    <div id='container'> 
-      <div id='header'><h1>fit</h1></div>
-      <div id='content'>
-
-        <div id="exercising" style="display: none;">
-          <div id="progress">
-            <div id="bar"></div>
-          </div>
-          <div id="counter">
-            <small><span id="completed_reps">0</span> of <span id="total_reps">0</span></small>         
-          </div>
-          <div class="spacer"></div>
-          
-          <table id="set"></table> 
-          
-          <br />
-          <p>
-            <a id="return_to_programs" href="#">Return to programs</a>
-          </p>
+    <div id='header'>
+      <a id="return_to_programs" href="#">&laquo; Programs</a>
+      <h1 id='header_label'>Repeat</h1>
+      <div class="spacer"></div>
+    </div>
+    <div id='content'>
+      <div id="exercising" style="display: none;">
+        <div id="progress">
+          <div id="bar"></div>
         </div>
-
-        <div id="programs">
-          <div class="program">
-            <a href="programs/standard_fitness_1.txt">Standard Fitness 1</a>
-            <p>A well-rounded routine.</p>
-          </div>
-          <div class="program">
-            <a href="programs/standard_fitness_2.txt">Standard Fitness 2</a>
-            <p>A well-rounded routine.</p>
-          </div>
-          <div class="program">
-            <a href="programs/core_strength_1.txt">Core Strength 1</a>
-            <p>A routine focused on developing core muscle strength, with plenty of ab exercises.</p>
-          </div>
+        <div id="counter">
+          <small><span id="completed_reps">0</span> of <span id="total_reps">0</span></small>         
         </div>
-     
-        <div id="data"></div>
-
-      </div>      
-      <div id='footer'> 
+        <div class="spacer"></div>
+        
+        <table id="set"></table> 
+        
       </div>
+
+      <div id="programs">
+        <div class="program">
+          <a href="programs/introduction_1.txt">Introduction 1</a>
+          <p>An easier, introductory routine for beginners or people just getting back to working out.</p>
+        </div>
+        <div class="program">
+          <a href="programs/standard_fitness_1.txt">Standard Fitness 1</a>
+          <p>A well-rounded routine.</p>
+        </div>
+        <div class="program">
+          <a href="programs/standard_fitness_2.txt">Standard Fitness 2</a>
+          <p>A well-rounded routine.</p>
+        </div>
+        <div class="program">
+          <a href="programs/core_strength_1.txt">Core Strength 1</a>
+          <p>A routine focused on developing core muscle strength, with plenty of ab exercises.</p>
+        </div>
+      </div>
+   
+      <div id="data"></div>
+
+    </div>      
+    <div id='footer'> 
     </div>
   </body> 
 </html>

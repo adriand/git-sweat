@@ -24,7 +24,7 @@ function ExerciseSet(exerciseSetTemplate) {
   this.draw = function() {
     $("#set").html(""); // clear the table
     obj = this;
-    $("#set").append('<tr><th><h1>' + obj.title + '</h1></th></tr>');
+    $("#header_label").html(obj.title);
     _(obj.exercises).each( function(exercise) {
       $("#set").append('<tr><th>' + exercise.label + '</th><td>' + obj.drawReps(exercise.reps) + '</td></tr>');
     });
@@ -109,6 +109,9 @@ $( function() {
 
       // show the exercise set and hide the index of exercise programs
       $("#exercising").show(); $("#programs").hide();
+
+      // show the link to take you back to the index
+      $("#return_to_programs").show();
       
       // when one of the checkboxes is clicked, update progress appropriately
       $("#set input").bind('click', function(event) {
@@ -127,6 +130,8 @@ $( function() {
   $("#return_to_programs").bind('click', function(event) {
     // hide the set of exercises, and show the list of exercise programs
     $("#exercising").hide(); $("#programs").show();
+    $("#header_label").html("Repeat");
+    $("#return_to_programs").hide();
     event.preventDefault();
   });
 

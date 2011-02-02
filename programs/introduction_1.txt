@@ -1,0 +1,15 @@
+Introduction 1
+
+Push-up: 10,10,10
+
+Bicycle crunch: 10,10,10
+
+Squat: 30,30,20
+
+Leg raises: 20,20,20
+
+Planche both arms: 15,15,15
+
+Bicep curls: 20,20,20
+
+Tricep raises: 5,5,5

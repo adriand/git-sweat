@@ -1,0 +1,14 @@
+CACHE MANIFEST
+# rev 5 
+
+# static assets
+assets/style.css
+assets/zepto.min.js
+assets/underscore-min.js
+assets/application.js
+
+# exercise programs
+programs/introduction_1.txt
+programs/standard_fitness_1.txt
+programs/standard_fitness_2.txt
+programs/core_strength_1.txt

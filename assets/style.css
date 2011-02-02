@@ -1,9 +1,8 @@
 body {
-  font: 18px/24px Helvetica, Arial, sans-serif;
+  font: 1em/1.2em Helvetica, Arial, sans-serif;
   margin: 0px;
   padding: 0px;
-  background-color: #393939;
-  color: white; }
+  color: #333; }
 
 * {
   margin: 0px;
@@ -18,44 +17,28 @@ body {
   width: 0; }
 
 a {
-  color: #62B94E;
+  color: #3366cc;
   font-weight: bold;
   text-decoration: none; }
   a:hover {
     text-decoration: underline; }
   a:visited {
-    color: #62B94E; }
+    color: #3366cc; }
   a img {
     border: 0px; }
 
 #header {
-  margin: 0px 0px 0px 20px;
-  padding: 40px 0px 0px 0px;
-  color: white; }
-
-#content {
-  background: white;
-  color: #333333;
-  padding: 30px;
-  margin: 20px;
-  text-align: left;
-  border-radius: 8px;
+  padding: 1em;
+  background-color: #C0C0C0;
 }
-  
-#footer {
-  font-size: 10px;
-  line-height: 10px;
-  margin: 0px;
-  padding: 40px 0px 50px;
-  color: black; }
 
-#container {
-  margin: 0px auto;
-  padding: 0px;
-  width: 90%; }
+#header #header_label { float: left; }
 
-#programs a { font-size: 28px; }
-#programs .program { margin-bottom: 20px; }
+#header #return_to_programs { font-size: 1.2em; float: left; display: none; padding: .5em; }
+
+#programs { margin-top: 1em; }
+#programs a { font-size: 1.4em; }
+#programs .program { padding: 1em; border-bottom: 1px solid gray; }
 
 #progress { margin: 8px 0px 0px 10px; background-color: #d8d8d8; float: left; width: 89%; height: 8px; }
 #progress #bar { background-color: blue; width: 0%; height: 8px; }
@@ -66,21 +49,6 @@ table#set tr td label { padding: 5px 12px 5px 12px; background-color: #d8d8d8; b
 table#set tr th, table#set tr td { padding: 10px; }
 
 h1 {
-  font-size: 30px;
-  line-height: 36px;
-  margin: 0px 0px 20px;
-  padding: 0px;
+  font-size: 1.4em;
+  line-height: 1.8em;
   font-weight: normal; }
-
-h2 {
-  font-size: 24px;
-  line-height: 24px;
-  margin: 0px;
-  padding: 0px 0px 15px;
-  font-weight: normal; }
-  
-h3 {
-  font-size: 18px;
-  margin-top: 40px;
-  margin-bottom: 20px;
-}
