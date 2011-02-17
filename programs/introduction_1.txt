@@ -6,10 +6,10 @@ Bicycle crunch: 10,10,10
 
 Squat: 30,30,20
 
-Leg raises: 20,20,20
+Russian twist: 10,10,10
 
-Planche both arms: 15,15,15
+Planche both arms: 10,10,10
 
-Bicep curls: 20,20,20
+Bicep curls: 15,15,15
 
-Tricep raises: 5,5,5
+Tricep raises: 3,3,3
