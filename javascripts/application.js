@@ -96,7 +96,7 @@ function Progress() {
 $( function() {
   progress = new Progress();
   
-  $("#programs a").bind('click', function(event) {
+  $("li.program a").bind('click', function(event) {
     $.get($(this).attr("href"), function(data) {
       // load and draw a new set of exercises based on the data retrieved via AJAX, post-click
       set = new ExerciseSet(data);
@@ -110,9 +110,6 @@ $( function() {
       // show the exercise set and hide the index of exercise programs
       $("#exercising").show(); $("#programs").hide();
 
-      // show the link to take you back to the index
-      $("#return_to_programs").show();
-      
       // when one of the checkboxes is clicked, update progress appropriately
       $("#set input").bind('click', function(event) {
         progress.update(this);
@@ -130,8 +127,7 @@ $( function() {
   $("#return_to_programs").bind('click', function(event) {
     // hide the set of exercises, and show the list of exercise programs
     $("#exercising").hide(); $("#programs").show();
-    $("#header_label").html("Repeat");
-    $("#return_to_programs").hide();
+    $("#header_label").html("");
     event.preventDefault();
   });
 
