@@ -1,5 +1,7 @@
-Minimal Fitness App
-===================
+git sweat
+=========
+
+_git pull, push up_
 
 Requirements
 ------------
