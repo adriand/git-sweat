@@ -22,18 +22,18 @@ function ExerciseSet(exerciseSetTemplate) {
   }
 
   this.draw = function() {
-    $("#set").html(""); // clear the table
+    $("#set").html(""); // clear the sets
     obj = this;
     $("#header_label").html(obj.title);
     _(obj.exercises).each( function(exercise) {
-      $("#set").append('<tr><th>' + exercise.label + '</th><td>' + obj.drawReps(exercise.reps) + '</td></tr>');
+      $("#set").append('<div class="row"><div class="three columns"><strong>' + exercise.label + '</strong></div>' + obj.drawReps(exercise.reps) + '</div>');
     });
   }
 
   this.drawReps = function(reps) { 
     checks = "";
     _(reps).each( function(rep) {
-      checks += "<td><label><input type='checkbox' /> " + rep + "</label></td>";
+      checks += "<div class='two columns'><label><input type='checkbox' /> <span>" + rep + "</span></label></div>";
     });
     return checks;
   }
