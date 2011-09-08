@@ -71,7 +71,7 @@ function Progress() {
 
   this.draw = function() {
     percentage = Math.round((this.progress / this.total) * 100);
-    $("#progress #bar").css("width", percentage + "%;");
+    $("#progress #bar").css("width", percentage + "%");
     $("#completed_reps").html(this.progress);
     if (this.progress == this.total) {
       $("#progress #bar").addClass('completed');
