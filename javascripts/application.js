@@ -22,12 +22,14 @@ function ExerciseSet(exerciseSetTemplate) {
   }
 
   this.draw = function() {
+    $("#set-container").hide();
     $("#set").html(""); // clear the sets
     obj = this;
     $("#header_label").html(obj.title);
     _(obj.exercises).each( function(exercise) {
       $("#set").append('<div class="row"><div class="three columns"><strong>' + exercise.label + '</strong></div>' + obj.drawReps(exercise.reps) + '</div>');
     });
+    $("#set-container").fadeIn();
   }
 
   this.drawReps = function(reps) { 
