@@ -23,12 +23,12 @@ Due to the somewhat broken nature of cross-domain policies, you'll need to use a
 
 Install thin and rack using rubygems:
 
-  gem install thin
-  gem install rack
+    gem install thin
+    gem install rack
 
 Start thin using the provided rackup file:
 
-  thin -R static.ru start
+    thin -R static.ru start
 
 Access the app at http://0.0.0.0:3000/index.html
 
