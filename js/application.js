@@ -7,7 +7,7 @@ function ExerciseSet(exerciseSetTemplate) {
     items = exerciseSetTemplate.split("\n\n");
     this.title = items[0];
 
-    for (i = 1;i < items.length;i++) {
+    for (var i = 1;i < items.length;i++) {
       this.exercises.push(new Exercise(items[i]));
     }
 
@@ -15,28 +15,28 @@ function ExerciseSet(exerciseSetTemplate) {
   }
 
   this.countTotalReps = function() {
-    obj = this;
-    _(this.exercises).each( function(exercise) {
-      obj.totalReps += exercise.totalReps;
-    });
+    self = this;
+    for (var i = 0;i < this.exercises.length;i++)
+      self.totalReps += this.exercises[i].totalReps;
   }
 
   this.draw = function() {
     $("#set-container").hide();
     $("#set").html(""); // clear the sets
-    obj = this;
-    $("#header_label").html(obj.title);
-    _(obj.exercises).each( function(exercise) {
-      $("#set").append('<div class="row"><div class="three columns"><strong>' + exercise.label + '</strong></div>' + obj.drawReps(exercise.reps) + '</div>');
-    });
-    $("#set-container").fadeIn();
+    self = this;
+    $("#header_label").html(self.title);
+
+    for (var i = 0;i < this.exercises.length;i++) {
+      var exercise = this.exercises[i];
+      $("#set").append('<div class="row"><div class="three columns"><strong>' + exercise.label + '</strong></div>' + self.drawReps(exercise.reps) + '</div>');
+    }
+    $("#set-container").show();
   }
 
   this.drawReps = function(reps) { 
     checks = "";
-    _(reps).each( function(rep) {
-      checks += "<div class='two columns'><label><input type='checkbox' /> <span>" + rep + "</span></label></div>";
-    });
+    for (var i = 0;i < reps.length;i++)
+      checks += "<div class='two columns'><label><input type='checkbox' /> <span>" + reps[i] + "</span></label></div>";
     return checks;
   }
 
@@ -54,7 +54,9 @@ function Exercise(exerciseItemTemplate) {
   }
 
   this.countTotalReps = function() {
-    this.totalReps = _(this.reps).reduce( function(memo, num) { return parseInt(memo) + parseInt(num); } );
+    this.totalReps = 0;
+    for (var i = 0;i < this.reps.length;i++)
+      this.totalReps += parseInt(this.reps[i]);
   }
 
   this.load(exerciseItemTemplate);

@@ -1,10 +1,8 @@
-git sweat
-=========
+# git sweat
 
 _git pull, push up_
 
-Requirements
-------------
+## Requirements
 
 1. Works well on mobile
 2. Local storage of progress
@@ -13,15 +11,30 @@ Requirements
   a) Reps
   b) Time
   c) Quotes
-  d) Pics
+  d) Pics/diagrams
 5. Shows progress
 6. Shows total time
 
-Setup
------
+## Setup
 
-Due to the somewhat broken nature of cross-domain policies, you'll need to use a web server to run this.  Just place the
-directory in a publicly accessible location and navigate to index.htm.
+Due to the somewhat broken nature of cross-domain policies, you'll need to use a web server to run this.
+
+### Using Thin
+
+Install thin and rack using rubygems:
+
+  gem install thin
+  gem install rack
+
+Start thin using the provided rackup file:
+
+  thin -R static.ru start
+
+Access the app at http://0.0.0.0:3000/index.html
+
+### Using Anything Else
+
+Just place the directory in a publicly accessible location and navigate to index.html.
 
 To-do
 -----
